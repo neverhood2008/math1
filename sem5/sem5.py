@@ -21,7 +21,7 @@ d=4
 alfa=0.05
 sko=math.sqrt(d)
 z=(x_sr-mu)/(sko/math.sqrt(n))
-z_tabl=round(stats.t.ppf(0.95,n-1),3)
+z_tabl=round(stats.norm.ppf(0.95),3)
 if z<z_tabl:
     print(f"z_набл={z}; z_tabl={z_tabl}; гипотеза, что статистически диаметр выборки равен среднему, верна")
 else :
@@ -50,7 +50,7 @@ else :
     print(f"t_набл={t_набл}; t_tabl={t_tabl}; гипотеза, что статистически вес пачки равен 200 гр,  не верна")
 #проверка тестом
 print(stats.ttest_1samp(x,200))
-if stats.ttest_1samp(x,200).pvalue>(alfa/2):
+if stats.ttest_1samp(x,200).pvalue>(alfa):
     print(f"pvalue={round(stats.ttest_1samp(x,200).pvalue,3)};alfa={round(alfa/2,3)}; гипотеза, что статистически вес пачки равен 200 гр, верна")
 else :
     print(f"pvalue={round(stats.ttest_1samp(x,200).pvalue,3)};alfa={round(alfa/2,3)}; гипотеза, что статистически вес пачки равен 200 гр,  не верна")
@@ -63,10 +63,10 @@ x=np.array([172,177,158,170,178,175,164,160,169])
 y=np.array([173,175,162,174,175,168,155,170,160])
 print(stats.ttest_ind(x,y))
 alfa=0.05
-if stats.ttest_ind(x,y).pvalue>(alfa/2):
-    print(f"pvalue={round(stats.ttest_ind(x,y).pvalue,3)};alfa={round(alfa/2,3)}; гипотеза, что статистически рост дочерей и матерей равен, верна")
+if stats.ttest_ind(x,y).pvalue>(alfa):
+    print(f"pvalue={round(stats.ttest_rel(x,y).pvalue,3)};alfa={round(alfa/2,3)}; гипотеза, что статистически рост дочерей и матерей равен, верна")
 else :
-    print(f"pvalue={round(stats.ttest_ind(x,y).pvalue,3)};alfa={round(alfa/2,3)}; гипотеза, что статистически рост дочерей и матерей равен,  не верна")
+    print(f"pvalue={round(stats.ttest_rel(x,y).pvalue,3)};alfa={round(alfa/2,3)}; гипотеза, что статистически рост дочерей и матерей равен,  не верна")
 #проверка
 mu1=np.mean(x)
 mu2=np.mean(y)

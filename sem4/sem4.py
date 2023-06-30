@@ -51,13 +51,13 @@ mu=174
 sko=8
 # а). больше 182 см
 x=182
-p=1-((x-mu)/sko)
+p=((x-mu)/sko)
 print("Задача 4")
-print(f"вероятность, что рост больше 182 = {round(st.norm.cdf(p),2)}")
+print(f"вероятность, что рост больше 182 = {round(1-st.norm.cdf(p),2)}")
 # б). больше 190 см
 x=190
-p=1-((x-mu)/sko)
-print(f"вероятность, что рост больше 190 = {round(st.norm.cdf(p),2)}")
+p=((x-mu)/sko)
+print(f"вероятность, что рост больше 190 = {round(1-st.norm.cdf(p),2)}")
 # в). от 166 см до 190 см
 x1=166
 x2=190
@@ -80,14 +80,14 @@ print(f"вероятность, что рост от 158 до 190 = {round(st.no
 x1=150
 x2=190
 p1=(x1-mu)/sko
-p2=1-(x2-mu)/sko
-print(f"вероятность, что рост не выше 150 или не ниже 190 = {round(st.norm.cdf(p2)+st.norm.cdf(p1),2)}")
+p2=(x2-mu)/sko
+print(f"вероятность, что рост не выше 150 или не ниже 190 = {round(1-st.norm.cdf(p2)+st.norm.cdf(p1),2)}")
 # ё). не выше 150 см или не ниже 198 см
 x1=150
 x2=198
 p1=(x1-mu)/sko
-p2=1-(x2-mu)/sko
-print(f"вероятность, что рост не выше 150 или не ниже 198 = {round(st.norm.cdf(p2)+st.norm.cdf(p1),2)}")
+p2=(x2-mu)/sko
+print(f"вероятность, что рост не выше 150 или не ниже 198 = {round(1-st.norm.cdf(p2)+st.norm.cdf(p1),2)}")
 # ж). ниже 166 см
 x=166
 p=(x-mu)/sko

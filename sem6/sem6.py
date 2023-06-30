@@ -1,6 +1,8 @@
 import math 
 import scipy.stats as stats
 import numpy as np
+from statsmodels.stats.weightstats import zconfint
+from statsmodels.stats.weightstats import _zconfint_generic, _tconfint_generic
 #задача 1
 print("задача 1")
 # Известно, что генеральная совокупность распределена нормально
@@ -48,7 +50,7 @@ d=(d_x+d_y)/2
 se=math.sqrt(d/len(x)+d/len(y))
 t_alfa_2=stats.t.ppf(0.975,len(x)+len(y)-2)
 print(f"доверительный интервал ({round(delta-t_alfa_2*se,3)},{round(delta+t_alfa_2*se,3)})")
-
+print(_tconfint_generic())
 
 
 
