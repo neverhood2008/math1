@@ -9,13 +9,13 @@ def comb(a,b):
     comb=math.factorial(b)/(math.factorial(a)*math.factorial(b-a))
     return comb
 #0 белых из первого ящика
-p0=comb(0,5)/comb(0,8)*comb(2,3)/comb(2,8)*comb(3,5)/comb(3,12)*comb(1,7)/comb(1,9)
+p0=comb(0,5)*comb(2,3)/comb(2,8)*comb(3,5)*comb(1,7)/comb(4,12)
 #print(p0)
 #1 белый из первого ящика
-p1=comb(1,5)/comb(1,8)*comb(1,3)/comb(1,7)*comb(2,5)/comb(2,12)*comb(2,7)/comb(2,10)
+p1=comb(1,5)*comb(1,3)/comb(2,8)*comb(2,5)*comb(2,7)/comb(4,12)
 #print(p1)
 #2 белых из первого ящика
-p2=comb(2,5)/comb(2,8)*comb(1,5)/comb(1,12)*comb(3,7)/comb(3,11)
+p2=comb(2,5)/comb(2,8)*comb(1,5)*comb(3,7)/comb(4,12)
 p=p1+p0+p2
 #print(p2)
 p=round(p,2)

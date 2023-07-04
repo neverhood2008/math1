@@ -42,15 +42,17 @@ print("задача 3")
 x=np.array([175, 167, 154, 174, 178, 148, 160, 167, 169, 170])
 y=np.array([178, 165, 165, 173, 168, 155, 160, 164, 178, 175])
 x_sr=np.mean(x)
-d_x=np.var(x)
+d_x=np.var(x,ddof=1)
+std_x=np.std(x,ddof=1)
 y_sr=np.mean(y)
-d_y=np.var(y)
+d_y=np.var(y,ddof=1)
 delta=x_sr-y_sr
 d=(d_x+d_y)/2
 se=math.sqrt(d/len(x)+d/len(y))
 t_alfa_2=stats.t.ppf(0.975,len(x)+len(y)-2)
 print(f"доверительный интервал ({round(delta-t_alfa_2*se,3)},{round(delta+t_alfa_2*se,3)})")
-print(_tconfint_generic())
+print(_tconfint_generic(x_sr,std_x,9, 0.05,'two-sided' ))
+ 
 
 
 
