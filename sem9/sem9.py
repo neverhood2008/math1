@@ -1,0 +1,36 @@
+# import numpy as np
+# X1= np.array([30,30,40, 40])
+# Y1= np.array([37, 47, 50, 60)]
+# x2= np.array([30,30,40, 40, 20, 20, 50, 50])
+# y2= np.array([37, 47, 50, 60, 25, 35, 62, 72])
+# X3 = np.array([30,30,40, 40, 20, 20, 50, 50, 10, 10, 60, 60])
+# Y3 = np.array([37, 47, 50, 60, 25, 35, 62, 72, 13, 23, 74, 84])
+import numpy as np
+import matplotlib.pyplot as plt
+# X1= np.array([30,30,40, 40])
+# Y1= np.array([37, 47, 50, 60])
+# X1= np.array([30,30,40, 40, 20, 20, 50, 50])
+# Y1= np.array([37, 47, 50, 60, 25, 35, 62, 72])
+X1 = np.array([30,30,40, 40, 20, 20, 50, 50, 10, 10, 60, 60])
+Y1 = np.array([37, 47, 50, 60, 25, 35, 62, 72, 13, 23, 74, 84])
+# b1 = (np.mean(X1 * Y1) - np.mean(X1) * np.mean(Y1)) / (np.mean(X1 ** 2) - np.mean(X1) ** 2)
+# print(b1) 
+# b0 = np.mean(Y1) - b1 * np.mean(X1)
+# print(b0)
+# r = np.corrcoef(X1, Y1)[0, 1]
+# print(r)
+# plt.scatter(X1, Y1)
+# plt.plot(X1, b0 + b1 * X1)
+# plt.show()
+# print("matrica")
+# x=X1.reshape((12,1))
+# y=Y1.reshape((12,1))
+# x=np.hstack([np.ones((12,1),x)])
+# b=np.dot(np.linalg.inv(np.dot(x.T,x)),x.T@y)
+# print(b)
+
+X4 = X1.reshape((12, 1))
+Y4 = Y1.reshape((12, 1))
+X5 = np.hstack([np.ones((12, 1)), X4])
+B = np.dot(np.linalg.inv(np.dot(X5.T, X5)), X5.T @ Y4)
+print(B)
